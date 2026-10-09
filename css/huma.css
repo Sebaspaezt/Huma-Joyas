@@ -46,9 +46,9 @@ body {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(15px);
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid var(--huma-border);
-  padding: 1.1rem 2rem;
+  padding: 0.9rem 1.2rem;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03);
 }
 
@@ -58,34 +58,38 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 .brand-huma {
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .brand-huma .title {
-  font-size: 1.65rem;
+  font-size: clamp(1.25rem, 4vw, 1.65rem);
   letter-spacing: 0.18em;
   font-weight: 700;
   color: var(--huma-text);
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .brand-huma .subtitle {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.25em;
+  font-size: clamp(0.58rem, 2vw, 0.72rem);
+  letter-spacing: 0.22em;
   color: var(--huma-gold);
   text-transform: uppercase;
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .huma-nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.6rem;
   align-items: center;
 }
 
@@ -98,10 +102,18 @@ body {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s;
+  white-space: nowrap;
 }
 
 .huma-nav a:hover, .huma-nav a.active {
   color: var(--huma-gold-dark);
+}
+
+/* En teléfonos móviles, ocultar los enlaces de texto que desbordan y mantener la Bolsa de compra destacada */
+@media (max-width: 900px) {
+  .huma-nav {
+    display: none;
+  }
 }
 
 .btn-huma {
@@ -451,8 +463,8 @@ body {
 
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-  gap: 2.2rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: 1.8rem;
 }
 
 .jewel-card {
