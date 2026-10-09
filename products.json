@@ -1,0 +1,82 @@
+[
+  {
+    "id": "huma-sol",
+    "name": "Collar Luz Baño de Sol",
+    "category": "collares",
+    "material": "Guaya, Piedra Citrino Natural, Acero 316L & Broche Salvavidas",
+    "description": "Joya emblemática de Huma Studio. Elaborado artesanalmente en guaya con piedra natural citrino —la piedra de la abundancia y prosperidad—, balines en acero 316L, esfera granulada y dije de sol radiante.",
+    "price": 185000,
+    "badge": "Pieza Insignia",
+    "image": "collar_luz_bano_de_sol.png"
+  },
+  {
+    "id": "huma-cianita",
+    "name": "Dije Gota Piedra Natural Cianita",
+    "category": "collares",
+    "material": "Plata Ley 925 & Piedra Cianita Azul",
+    "description": "Pieza de la colección Terrenos Boscosos. Gota facetada en cianita natural montada en bisel de plata de ley 925, ideal para elevar tu vibración y conexión espiritual.",
+    "price": 160000,
+    "badge": "Colección Bosques",
+    "image": "post_dije_cianita.png"
+  },
+  {
+    "id": "huma-anillo-roca",
+    "name": "Anillo Rústico Ópalo & Roca Ancestral",
+    "category": "anillos",
+    "material": "Plata 925 Envejecida & Piedra Lunar Turquesa",
+    "description": "Forjado a mano sobre plata ley trabajada con textura volcánica y engaste ovalado de cabujón translúcido. Una joya escultórica y única.",
+    "price": 175000,
+    "badge": "Diseño de Autor",
+    "image": "post_anillo_roca.png"
+  },
+  {
+    "id": "huma-candelaria",
+    "name": "Choker / Collar Noches de Candelaria",
+    "category": "collares",
+    "material": "Perlas Barrocas, Piedras Naturales & Acero Dorado",
+    "description": "Inspirado en el color y bohemia del centro histórico. Combinación vibrante de perlas irregulares, cuentas minerales de amatista y detalles dorados.",
+    "price": 140000,
+    "badge": "Edición Urbana",
+    "image": "post_noches_candelaria.png"
+  },
+  {
+    "id": "huma-01",
+    "name": "Anillo Solitario Aura Dorada",
+    "category": "anillos",
+    "material": "Plata 925 con Baño de Oro 24K",
+    "description": "Engaste artesanal con circón suizo de talla brillante. Inspirado en la calidez de la luz solar y elegancia atemporal.",
+    "price": 145000,
+    "badge": "Bestseller",
+    "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "huma-03",
+    "name": "Aretes Huggies Esmeralda Silvestre",
+    "category": "aretes",
+    "material": "Plata Ley 925 & Cristal Esmeralda",
+    "description": "Aros discretos con baño de oro amarillo y dije colgante facetado verde esmeralda. Cierre seguro hipoalergénico.",
+    "price": 120000,
+    "badge": "Favorito",
+    "image": "https://images.unsplash.com/photo-1630019852942-f89202989a59?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "huma-04",
+    "name": "Pulsera Tennis Radiance Luxe",
+    "category": "pulseras",
+    "material": "Circones AAA & Baño de Oro Blanco",
+    "description": "Una pieza icónica y atemporal. Brillo continuo de gemas engarzadas individualmente con broche náutico de seguridad.",
+    "price": 230000,
+    "badge": "Exclusivo",
+    "image": "https://images.unsplash.com/photo-1611591475155-42e9fce67ff9?auto=format&fit=crop&w=700&q=80"
+  },
+  {
+    "id": "huma-05",
+    "name": "Ear Cuff Doble Glow (Sin Perforación)",
+    "category": "aretes",
+    "material": "Acero Quirúrgico Dorado 18K",
+    "description": "Ajuste suave y anatómico sin necesidad de agujeros en la oreja. Diseñado para combinar con cualquier look casual o de fiesta.",
+    "price": 75000,
+    "badge": "Tendencia",
+    "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=700&q=80"
+  }
+]

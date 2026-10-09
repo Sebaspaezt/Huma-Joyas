@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUMA STUDIO | Joyería Artesanal, Piedras Naturales & Diseño de Autor</title>
+  <meta name="description" content="Joyería artesanal de Huma Studio: Citrino, Cianita en Plata 925, Perlas Candelaria y Acero 316L. Punto físico en Bogotá Calle 53 # 16-08. Compra segura online.">
+
+  <!-- Google Fonts: Cinzel & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/huma.css">
+  <style>
+    /* Estilos específicos para la vista detallada interactiva del producto */
+    .post-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 2100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .post-modal-overlay.active {
+      display: flex;
+    }
+    .post-modal-card {
+      background: #ffffff;
+      border-radius: 12px;
+      max-width: 880px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    @media (min-width: 768px) {
+      .post-modal-card {
+        grid-template-columns: 1.1fr 1fr;
+      }
+    }
+    .post-modal-img {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+      background: #faf7f2;
+    }
+    .post-modal-info {
+      padding: 2.2rem;
+      display: flex;
+      flex-direction: column;
+    }
+    .close-post-modal {
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #333;
+      cursor: pointer;
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar informativa -->
+  <div class="insta-badge-banner">
+    <span>✨ Piezas Hechas a Mano con Alma</span>
+    <span>•</span>
+    <span>🚚 Envíos Nacionales</span>
+    <span>•</span>
+    <span>🏛️ Punto Físico: Calle 53 # 16-08 (Galerías, Bogotá)</span>
+    <span>•</span>
+    <span>💬 WhatsApp Oficial: +57 320 2597053</span>
+  </div>
+
+  <!-- Header Blanco y Dorado -->
+  <header class="huma-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-huma">
+        <span class="title">HUMA</span>
+        <span class="subtitle">STUDIO • JOYERÍA ARTESANAL</span>
+      </a>
+
+      <nav class="huma-nav">
+        <a href="#destacados">Colección Instagram</a>
+        <a href="#coleccion" class="active">Catálogo Completo</a>
+        <a href="#punto-fisico">Punto Físico</a>
+        <a href="#conocenos">Conócenos</a>
+        <a href="https://www.instagram.com/joyas.huma.studio/?hl=es" target="_blank" rel="noopener" style="color:var(--huma-gold-dark); font-weight:700;">
+          Instagram ↗
+        </a>
+      </nav>
+
+      <button class="btn-huma" id="open-huma-cart">
+        <span>Bolsa</span>
+        <span id="huma-cart-count" style="background:var(--huma-gold-dark); color:#fff; font-weight:700; border-radius:50%; width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center; font-size:0.75rem;">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section con Video Cinematográfico de Fondo y Fallback -->
+  <section class="huma-hero-video-container">
+    <!-- Video de fondo en loop (se reproduce silenciado automáticamente) -->
+    <div class="hero-video-media">
+      <video id="huma-hero-video" autoplay muted loop playsinline poster="collar_luz_bano_de_sol.png">
+        <!-- Puedes colocar tu archivo generado de Google Flow (por ejemplo: assets/videos/huma_hero_cinematic.mp4) -->
+        <source src="assets/videos/huma_hero_cinematic.mp4" type="video/mp4">
+        <!-- Si el video no está disponible aún, el póster collar_luz_bano_de_sol.png se muestra con alta nitidez -->
+      </video>
+      <div class="hero-video-overlay"></div>
+    </div>
+
+    <div class="huma-hero-content">
+      <span class="hero-tagline">✨ Joyería Consciente & Diseño de Autor</span>
+      <h1>Piezas que narran <br><span class="gold-gradient-text">historias de luz</span></h1>
+      <p>
+        Todas las creaciones, piedras naturales y piezas exclusivas compartidas en nuestra cuenta oficial, reunidas en una tienda web completa donde puedes explorar cada detalle, consultar su significado y comprar en línea o por WhatsApp.
+      </p>
+      <div class="hero-actions">
+        <a href="#destacados" class="btn-huma-solid btn-huma">Ver Piezas del Feed</a>
+        <a href="#coleccion" class="btn-huma" style="background: rgba(255,255,255,0.85); backdrop-filter: blur(4px);">Catálogo Completo</a>
+      </div>
+      <div class="hero-video-status-badge">
+        <span class="pulse-dot"></span> Modo Cinematográfico Flow HD Activo
+      </div>
+    </div>
+  </section>
+
+  <!-- PIEZA 1 DESTACADA: COLLAR LUZ BAÑO DE SOL (DEL POST REAL DE INSTAGRAM) -->
+  <section class="featured-post-section" id="destacados">
+    <div class="featured-img-wrap">
+      <img src="collar_luz_bano_de_sol.png" alt="Collar Luz Baño de Sol Huma Studio" loading="lazy">
+    </div>
+
+    <div class="featured-content">
+      <span class="featured-tag">🌟 Publicación Oficial • Colección Luz y Fuerza</span>
+      <h2 class="featured-title">Collar Luz Baño de Sol</h2>
+      
+      <div class="featured-post-body">
+        <p>
+          Hay lugares que nos llaman a explorar, momentos que nos llenan de energía y formas de llevar con nosotros aquello que nos hace sentir vivos.
+        </p>
+        <blockquote>
+          "Luz Baño de Sol nace de esa sensación: la calidez del sol, la fuerza del citrino y las ganas de movernos, descubrir y ser nosotros mismos. Una pieza hecha para acompañarte en el camino, sin perder tu esencia."
+        </blockquote>
+        <p>
+          <strong>Citrino Natural:</strong> Reconocida ancestralmente como la piedra natural de la abundancia, la claridad mental y la prosperidad.
+        </p>
+      </div>
+
+      <div class="spec-list">
+        <div class="spec-item">
+          <strong>Gema Central</strong>
+          Piedra Natural Citrino
+        </div>
+        <div class="spec-item">
+          <strong>Broche</strong>
+          Náutico Salvavidas (Acero 316L)
+        </div>
+        <div class="spec-item">
+          <strong>Dije</strong>
+          Sol Radiante Inoxidable 316L
+        </div>
+        <div class="spec-item">
+          <strong>Detalles</strong>
+          Esfera Granulada Antialérgica
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-top:0.5rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div style="font-family:'Montserrat'; font-size:0.8rem; color:var(--huma-text-muted);">Precio de Lanzamiento:</div>
+          <div style="font-size:1.8rem; font-weight:700; color:var(--huma-gold-dark);">$185.000 COP</div>
+        </div>
+        <button class="btn-huma-solid btn-huma" onclick="addToCart('huma-sol')" style="padding:0.9rem 2rem; font-size:0.95rem;">
+          🛍️ Agregar a Mi Bolsa
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIEZA 2 DESTACADA: DIJE GOTA CIANITA EN PLATA LEY 925 (DEL POST REAL DE INSTAGRAM) -->
+  <section class="featured-post-section" style="background:#ffffff; border:1px solid #e5ded4; margin-bottom:5rem;">
+    <div class="featured-content">
+      <span class="featured-tag" style="color:#2563eb;">🌿 Terrenos Boscosos • Publicación Oficial</span>
+      <h2 class="featured-title">Dije Gota Piedra Natural Cianita</h2>
+      
+      <div class="featured-post-body">
+        <blockquote style="border-left-color:#2563eb;">
+          "CIANITA: Calma para sentir. Claridad para elegir. Libertad para moverte. Una pieza en piedra natural, hecha para llevar contigo lo que te representa."
+        </blockquote>
+        <p>
+          Montada artesanalmente en plata de ley 925 certificada sobre bisel cerrado con pasador superior pulido. Perfecta para llevar como amuleto diario de serenidad y fuerza.
+        </p>
+      </div>
+
+      <div class="spec-list">
+        <div class="spec-item">
+          <strong>Gema</strong>
+          Cianita Natural Azul Profundo
+        </div>
+        <div class="spec-item">
+          <strong>Metal</strong>
+          Plata Ley 925 Certificada
+        </div>
+        <div class="spec-item">
+          <strong>Origen</strong>
+          Colección Terrenos Boscosos
+        </div>
+        <div class="spec-item">
+          <strong>Acabado</strong>
+          Hecho a Mano en Taller
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-top:0.5rem; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <div style="font-family:'Montserrat'; font-size:0.8rem; color:var(--huma-text-muted);">Valor de la pieza:</div>
+          <div style="font-size:1.8rem; font-weight:700; color:#1a1512;">$165.000 COP</div>
+        </div>
+        <button class="btn-huma-solid btn-huma" onclick="addToCart('huma-cianita')" style="padding:0.9rem 2rem; font-size:0.95rem;">
+          🛍️ Agregar a Mi Bolsa
+        </button>
+      </div>
+    </div>
+
+    <div class="featured-img-wrap">
+      <img src="post_cianita_hd.png" alt="Dije Cianita Plata Ley 925 Huma Studio" loading="lazy">
+    </div>
+  </section>
+
+  <!-- Catálogo de Joyas Interactivo con Filtros -->
+  <section class="catalog-section" id="coleccion">
+    <div class="section-header">
+      <h2>Catálogo de Piezas & Publicaciones</h2>
+      <p>Haz clic en cualquier pieza para ver sus detalles, significado y agregarla a tu compra</p>
+    </div>
+
+    <!-- Filtros por categoría -->
+    <div class="filters-bar" id="category-filters">
+      <button class="filter-btn active" data-filter="all">Todas las piezas</button>
+      <button class="filter-btn" data-filter="collares">Collares & Dijes</button>
+      <button class="filter-btn" data-filter="anillos">Anillos</button>
+      <button class="filter-btn" data-filter="aretes">Aretes</button>
+      <button class="filter-btn" data-filter="pulseras">Pulseras</button>
+    </div>
+
+    <div class="products-grid" id="huma-products-grid">
+      <!-- Se inyecta de forma inmediata garantizada desde products-data.js -->
+    </div>
+  </section>
+
+  <!-- Punto Físico & Showroom -->
+  <section class="info-section" id="punto-fisico">
+    <div class="info-grid">
+      <div>
+        <img src="story_punto_fisico.png" alt="Punto Físico Huma Studio Calle 53" style="width:100%; border-radius:10px; border:1px solid var(--huma-border); box-shadow:var(--huma-shadow);">
+      </div>
+      <div class="info-card">
+        <span style="font-family:'Montserrat'; font-size:0.75rem; color:var(--huma-gold-dark); letter-spacing:0.2em; text-transform:uppercase; font-weight:700;">Visítanos en Bogotá</span>
+        <h3>Punto Físico Huma Studio</h3>
+        <p>
+          Encuentra todas nuestras vitrinas con piezas en vivo, pruébate anillos a tu medida o retira tus compras online sin costo de envío.
+        </p>
+        <p>
+          📍 <strong>Dirección:</strong> Calle 53 # 16-08 (Sector Galerías / Teusaquillo, Bogotá D.C.).<br>
+          🕒 <strong>Horarios:</strong> Lunes a Sábado de 10:00 AM a 6:30 PM.<br>
+          ✨ Atención personalizada, asesoría de gemas y arreglos a medida.
+        </p>
+        <div style="margin-top:1.5rem;">
+          <a href="https://wa.me/573202597053?text=Hola%20Huma%20Studio!%20Deseo%20informaci%C3%B3n%20para%20visitar%20su%20punto%20f%C3%ADsico%20en%20la%20Calle%2053" target="_blank" rel="noopener" class="btn-huma-solid btn-huma">
+            📍 Abrir Ubicación y Contactar por WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conócenos / Filosofía del Estudio -->
+  <section class="info-section" id="conocenos" style="background:#faf7f2;">
+    <div class="info-grid">
+      <div class="info-card" style="background:#fff;">
+        <span style="font-family:'Montserrat'; font-size:0.75rem; color:var(--huma-gold-dark); letter-spacing:0.2em; text-transform:uppercase; font-weight:700;">Nuestra Autenticidad</span>
+        <h3>Conócenos: Energía Creativa</h3>
+        <p>
+          En <strong>Huma Studio</strong> diseñamos joyas con intención y carácter. Creemos que los accesorios deben ser una extensión de tu energía interior y una manifestación de tu propia luz.
+        </p>
+        <p>
+          Nos especializamos en metales hipoalergénicos, baños de oro de alta resistencia en 18K y 24K, acero inoxidable 316L, perlas de cultivo y gemas con propiedades energéticas.
+        </p>
+        <div style="display:flex; gap:1.5rem; margin-top:1.5rem; font-family:'Montserrat';">
+          <div>
+            <div style="color:var(--huma-gold-dark); font-size:1.4rem; font-weight:700;">100%</div>
+            <div style="font-size:0.8rem; color:var(--huma-text-muted);">Hipoalergénico</div>
+          </div>
+          <div>
+            <div style="color:var(--huma-gold-dark); font-size:1.4rem; font-weight:700;">Acero 316L & Oro</div>
+            <div style="font-size:0.8rem; color:var(--huma-text-muted);">Máxima Durabilidad</div>
+          </div>
+          <div>
+            <div style="color:var(--huma-gold-dark); font-size:1.4rem; font-weight:700;">Piedras Naturales</div>
+            <div style="font-size:0.8rem; color:var(--huma-text-muted);">Citrino y Cianita</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <img src="story_conocenos.png" alt="Huma Studio Conócenos" style="width:100%; border-radius:10px; border:1px solid var(--huma-border); box-shadow:var(--huma-shadow);">
+      </div>
+    </div>
+  </section>
+
+  <!-- Botón Flotante de WhatsApp para Contacto Directo con el Número Oficial -->
+  <a href="https://wa.me/573202597053?text=Hola%20Huma%20Studio!%20Me%20interesa%20informaci%C3%B3n%20sobre%20sus%20joyas%20y%20precios" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    💬
+  </a>
+
+  <!-- MODAL DE DETALLE DEL PRODUCTO (INTERACCIÓN COMPLETA) -->
+  <div class="post-modal-overlay" id="product-detail-modal">
+    <div class="post-modal-card">
+      <button class="close-post-modal" onclick="closeProductDetail()">&times;</button>
+      <img id="modal-detail-img" src="" alt="Joya Huma" class="post-modal-img">
+      <div class="post-modal-info">
+        <span id="modal-detail-collection" style="font-family:'Montserrat'; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:var(--huma-gold-dark); font-weight:700; margin-bottom:0.4rem;"></span>
+        <h3 id="modal-detail-name" style="font-size:1.5rem; margin-bottom:0.6rem; color:#1a1512;"></h3>
+        <p id="modal-detail-mat" style="font-family:'Montserrat'; font-size:0.82rem; color:var(--huma-gold-dark); font-weight:600; margin-bottom:1rem;"></p>
+        <p id="modal-detail-desc" style="font-family:'Montserrat'; font-size:0.9rem; color:var(--huma-text-muted); line-height:1.7; margin-bottom:1.2rem;"></p>
+        
+        <div id="modal-detail-specs" style="display:flex; flex-direction:column; gap:0.4rem; margin-bottom:1.5rem; font-family:'Montserrat'; font-size:0.85rem;">
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-top:auto; padding-top:1rem; border-top:1px solid #eee7de;">
+          <span id="modal-detail-price" style="font-family:'Montserrat'; font-size:1.6rem; font-weight:700; color:#1a1512;"></span>
+          <button id="modal-detail-add-btn" class="btn-huma-solid btn-huma">
+            + Agregar a Bolsa
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cart Drawer -->
+  <div class="drawer-backdrop" id="huma-overlay"></div>
+  <aside class="drawer-panel" id="huma-drawer">
+    <div class="drawer-header">
+      <h3 style="font-size:1.15rem; letter-spacing:0.08em; text-transform:uppercase;">Tu Bolsa de Compras</h3>
+      <button class="close-btn" id="close-huma-cart">&times;</button>
+    </div>
+    <div class="drawer-content" id="huma-cart-items">
+      <!-- Items -->
+    </div>
+    <div class="drawer-footer">
+      <div style="display:flex; justify-content:space-between; margin-bottom:1rem; font-family:'Montserrat',sans-serif;">
+        <span style="color:var(--huma-text-muted);">Subtotal:</span>
+        <strong id="huma-total-display" style="color:var(--huma-text); font-size:1.25rem;">$0 COP</strong>
+      </div>
+      <button class="btn-huma-solid btn-huma" style="width:100%; text-align:center; padding:0.9rem;" id="btn-to-checkout">
+        Proceder al Pago
+      </button>
+    </div>
+  </aside>
+
+  <!-- Modal Checkout -->
+  <div class="modal-overlay" id="huma-modal">
+    <div class="modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; border-bottom:1px solid #eee7de; padding-bottom:1rem;">
+        <h3 style="font-size:1.3rem; letter-spacing:0.05em;">Finalizar Pedido Online</h3>
+        <button class="close-btn" id="close-huma-modal">&times;</button>
+      </div>
+
+      <form id="huma-order-form">
+        <h4 style="font-family:'Montserrat'; font-size:0.85rem; letter-spacing:0.12em; color:var(--huma-gold-dark); text-transform:uppercase; margin-bottom:1rem; font-weight:700;">1. Información de Envío</h4>
+        <div class="form-field">
+          <label>Nombre y Apellido</label>
+          <input type="text" id="cust-name" class="input-box" required placeholder="Tu nombre completo">
+        </div>
+        <div class="form-field">
+          <label>Teléfono Celular / WhatsApp</label>
+          <input type="tel" id="cust-phone" class="input-box" required placeholder="Ej: 300 123 4567">
+        </div>
+        <div class="form-field">
+          <label>Ciudad y Dirección</label>
+          <input type="text" id="cust-address" class="input-box" required placeholder="Calle, Apto, Ciudad">
+        </div>
+
+        <h4 style="font-family:'Montserrat'; font-size:0.85rem; letter-spacing:0.12em; color:var(--huma-gold-dark); text-transform:uppercase; margin:1.5rem 0 1rem; font-weight:700;">2. Método de Envío</h4>
+        <div class="method-grid" id="shipping-container">
+          <div class="method-card selected" data-cost="12000" data-name="Envío Nacional Estándar">
+            <span style="font-size:1.4rem;">📦</span>
+            <div>
+              <strong>Envío Nacional (2 a 4 días)</strong>
+              <div style="font-size:0.8rem; color:var(--huma-text-muted);">$12.000 COP</div>
+            </div>
+          </div>
+          <div class="method-card" data-cost="18000" data-name="Envío Express Prioritario">
+            <span style="font-size:1.4rem;">⚡</span>
+            <div>
+              <strong>Envío Express 24h</strong>
+              <div style="font-size:0.8rem; color:var(--huma-text-muted);">$18.000 COP</div>
+            </div>
+          </div>
+          <div class="method-card" data-cost="0" data-name="Retiro en Punto Físico Calle 53 # 16-08">
+            <span style="font-size:1.4rem;">🏛️</span>
+            <div>
+              <strong>Retiro en Punto Físico (Calle 53 # 16-08)</strong>
+              <div style="font-size:0.8rem; color:var(--huma-text-muted);">Gratis ($0 COP)</div>
+            </div>
+          </div>
+        </div>
+
+        <h4 style="font-family:'Montserrat'; font-size:0.85rem; letter-spacing:0.12em; color:var(--huma-gold-dark); text-transform:uppercase; margin:1.5rem 0 1rem; font-weight:700;">3. Método de Recaudo Online</h4>
+        <div class="method-grid" id="gateway-container">
+          <div class="method-card selected" data-gateway="mercadopago">
+            <span style="font-size:1.4rem;">💙</span>
+            <div>
+              <strong>Mercado Pago (PSE, Tarjetas, Nequi, Daviplata)</strong>
+              <div style="font-size:0.8rem; color:var(--huma-text-muted);">Aprobación instantánea con respaldo seguro</div>
+            </div>
+          </div>
+          <div class="method-card" data-gateway="stripe">
+            <span style="font-size:1.4rem;">💳</span>
+            <div>
+              <strong>Stripe (Tarjetas de Crédito / Débito Internacionales)</strong>
+              <div style="font-size:0.8rem; color:var(--huma-text-muted);">Visa, MasterCard, American Express</div>
+            </div>
+          </div>
+          <div class="method-card" data-gateway="whatsapp">
+            <span style="font-size:1.4rem;">💬</span>
+            <div>
+              <strong>Asesoría y Pago Directo por WhatsApp (+57 320 2597053)</strong>
+              <div style="font-size:0.8rem; color:var(--huma-text-muted);">Transferencia Bancolombia / Nequi oficial</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#faf7f2; border:1px solid #e0d7cb; padding:1.2rem; border-radius:6px; margin-top:1.5rem; font-family:'Montserrat';">
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem; font-size:0.9rem;">
+            <span>Subtotal de Piezas:</span>
+            <span id="summary-subtotal">$0 COP</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; margin-bottom:0.4rem; font-size:0.9rem;">
+            <span>Flete:</span>
+            <span id="summary-shipping">$12.000 COP</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; border-top:1px solid #ded5c9; padding-top:0.6rem; font-weight:700; color:var(--huma-text); font-size:1.15rem;">
+            <span>Total Final a Pagar:</span>
+            <span id="summary-total" style="color:var(--huma-gold-dark);">$0 COP</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-huma-solid btn-huma" style="width:100%; margin-top:1.5rem; padding:0.9rem; font-size:1rem;" id="btn-submit-order">
+          Confirmar y Pagar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <footer style="text-align:center; padding:3.5rem 1.5rem; border-top:1px solid #eee7de; font-family:'Montserrat'; font-size:0.85rem; color:var(--huma-text-muted); background:#faf7f2;">
+    <p>© 2026 HUMA STUDIO JOYAS • Punto Físico: Calle 53 # 16-08 (Galerías, Bogotá D.C.).</p>
+    <p style="margin-top:0.5rem;">Atención oficial por WhatsApp: +57 320 2597053</p>
+  </footer>
+
+  <!-- CARGA SÍNCRONA GARANTIZADA DE TODOS LOS PRODUCTOS -->
+  <script src="products-data.js"></script>
+
+  <script>
+    let activeFilter = 'all';
+    let cart = JSON.parse(localStorage.getItem('huma_standalone_cart') || '[]');
+    let selectedShippingCost = 12000;
+    let selectedShippingName = "Envío Nacional Estándar";
+    let selectedGateway = "mercadopago";
+
+    function formatCOP(amount) {
+      return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(amount);
+    }
+
+    function renderCatalog() {
+      const products = window.HUMA_PRODUCTS || [];
+      const container = document.getElementById('huma-products-grid');
+      const filtered = activeFilter === 'all' 
+        ? products 
+        : products.filter(p => p.category === activeFilter);
+
+      container.innerHTML = filtered.map(item => `
+        <article class="jewel-card" onclick="openProductDetail('${item.id}')" style="cursor:pointer;">
+          <div class="jewel-img-wrap">
+            <img src="${item.image}" alt="${item.name}" loading="lazy">
+            <span class="jewel-badge">${item.badge}</span>
+          </div>
+          <div class="jewel-info">
+            <span class="jewel-material">${item.material}</span>
+            <h3 class="jewel-name">${item.name}</h3>
+            <p class="jewel-desc">${item.description}</p>
+            <div class="jewel-footer">
+              <span class="jewel-price">${formatCOP(item.price)}</span>
+              <button class="btn-huma" onclick='event.stopPropagation(); addToCart("${item.id}")'>+ Agregar</button>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    window.openProductDetail = function(id) {
+      const products = window.HUMA_PRODUCTS || [];
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+
+      document.getElementById('modal-detail-img').src = p.image;
+      document.getElementById('modal-detail-collection').textContent = p.collection || 'Huma Studio';
+      document.getElementById('modal-detail-name').textContent = p.name;
+      document.getElementById('modal-detail-mat').textContent = p.material;
+      document.getElementById('modal-detail-desc').textContent = p.description;
+      document.getElementById('modal-detail-price').textContent = formatCOP(p.price);
+
+      const specsBox = document.getElementById('modal-detail-specs');
+      specsBox.innerHTML = (p.specs || []).map(s => `<div>✨ <strong>${s}</strong></div>`).join('');
+
+      document.getElementById('modal-detail-add-btn').onclick = () => {
+        addToCart(p.id);
+        closeProductDetail();
+      };
+
+      document.getElementById('product-detail-modal').classList.add('active');
+    };
+
+    window.closeProductDetail = function() {
+      document.getElementById('product-detail-modal').classList.remove('active');
+    };
+
+    window.addToCart = function(id) {
+      const products = window.HUMA_PRODUCTS || [];
+      const p = products.find(x => x.id === id);
+      if (!p) return;
+      const existing = cart.find(x => x.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...p, qty: 1 });
+      }
+      saveCart();
+      openCart();
+    };
+
+    function saveCart() {
+      localStorage.setItem('huma_standalone_cart', JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    function updateCartUI() {
+      const countEl = document.getElementById('huma-cart-count');
+      const itemsEl = document.getElementById('huma-cart-items');
+      const totalEl = document.getElementById('huma-total-display');
+
+      const count = cart.reduce((s, i) => s + i.qty, 0);
+      countEl.textContent = count;
+
+      if (cart.length === 0) {
+        itemsEl.innerHTML = '<p style="text-align:center; padding:3rem 0; font-family:Montserrat; color:var(--huma-text-muted);">Tu bolsa está vacía</p>';
+        totalEl.textContent = '$0 COP';
+        return;
+      }
+
+      itemsEl.innerHTML = cart.map(item => `
+        <div style="display:flex; gap:1rem; align-items:center; background:#faf7f2; padding:0.8rem; border:1px solid #eee7de; border-radius:4px;">
+          <img src="${item.image}" style="width:60px; height:60px; object-fit:cover; border-radius:4px;">
+          <div style="flex-grow:1; font-family:'Montserrat'; font-size:0.85rem;">
+            <div style="font-weight:600; color:#1a1512;">${item.name}</div>
+            <div style="color:var(--huma-gold-dark); font-weight:700;">${formatCOP(item.price)} x ${item.qty}</div>
+            <div style="margin-top:0.4rem; display:flex; gap:0.4rem; align-items:center;">
+              <button onclick="changeQty('${item.id}', -1)" style="padding:0.1rem 0.5rem; background:#fff; border:1px solid #ded5c9; cursor:pointer;">-</button>
+              <span>${item.qty}</span>
+              <button onclick="changeQty('${item.id}', 1)" style="padding:0.1rem 0.5rem; background:#fff; border:1px solid #ded5c9; cursor:pointer;">+</button>
+              <button onclick="removeItem('${item.id}')" style="margin-left:auto; background:none; border:none; color:#ef4444; cursor:pointer; font-size:0.8rem;">Eliminar</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+
+      const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+      totalEl.textContent = formatCOP(subtotal);
+    }
+
+    window.changeQty = function(id, delta) {
+      const item = cart.find(x => x.id === id);
+      if (item) {
+        item.qty += delta;
+        if (item.qty <= 0) cart = cart.filter(x => x.id !== id);
+        saveCart();
+      }
+    };
+
+    window.removeItem = function(id) {
+      cart = cart.filter(x => x.id !== id);
+      saveCart();
+    };
+
+    function updateCheckoutModalValues() {
+      const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+      const total = subtotal + selectedShippingCost;
+      document.getElementById('summary-subtotal').textContent = formatCOP(subtotal);
+      document.getElementById('summary-shipping').textContent = formatCOP(selectedShippingCost);
+      document.getElementById('summary-total').textContent = formatCOP(total);
+    }
+
+    function setupEvents() {
+      const drawer = document.getElementById('huma-drawer');
+      const overlay = document.getElementById('huma-overlay');
+      const modal = document.getElementById('huma-modal');
+
+      document.getElementById('open-huma-cart').onclick = openCart;
+      document.getElementById('close-huma-cart').onclick = closeCart;
+      overlay.onclick = closeCart;
+
+      // Filter events
+      document.querySelectorAll('#category-filters .filter-btn').forEach(btn => {
+        btn.onclick = () => {
+          document.querySelectorAll('#category-filters .filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          activeFilter = btn.dataset.filter;
+          renderCatalog();
+        };
+      });
+
+      document.getElementById('btn-to-checkout').onclick = () => {
+        if (cart.length === 0) return alert('La bolsa está vacía.');
+        closeCart();
+        modal.classList.add('active');
+        updateCheckoutModalValues();
+      };
+
+      document.getElementById('close-huma-modal').onclick = () => modal.classList.remove('active');
+
+      // Shipping selection
+      document.querySelectorAll('#shipping-container .method-card').forEach(c => {
+        c.onclick = () => {
+          document.querySelectorAll('#shipping-container .method-card').forEach(x => x.classList.remove('selected'));
+          c.classList.add('selected');
+          selectedShippingCost = parseInt(c.dataset.cost);
+          selectedShippingName = c.dataset.name;
+          updateCheckoutModalValues();
+        };
+      });
+
+      // Gateway selection
+      document.querySelectorAll('#gateway-container .method-card').forEach(c => {
+        c.onclick = () => {
+          document.querySelectorAll('#gateway-container .method-card').forEach(x => x.classList.remove('selected'));
+          c.classList.add('selected');
+          selectedGateway = c.dataset.gateway;
+        };
+      });
+
+      // Order submit funcional en local
+      document.getElementById('huma-order-form').onsubmit = (e) => {
+        e.preventDefault();
+        const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+        const total = subtotal + selectedShippingCost;
+        const name = document.getElementById('cust-name').value;
+        const phone = document.getElementById('cust-phone').value;
+        const addr = document.getElementById('cust-address').value;
+
+        if (selectedGateway === 'whatsapp') {
+          const itemsList = cart.map(i => `• ${i.name} (x${i.qty}) = ${formatCOP(i.price * i.qty)}`).join('%0A');
+          const msg = `*NUEVO PEDIDO JOYAS HUMA STUDIO*%0A%0A` +
+            `*Cliente:* ${name}%0A` +
+            `*Teléfono:* ${phone}%0A` +
+            `*Dirección:* ${addr}%0A` +
+            `*Método de Entrega:* ${selectedShippingName} (${formatCOP(selectedShippingCost)})%0A%0A` +
+            `*Piezas:*%0A${itemsList}%0A%0A` +
+            `*TOTAL A PAGAR:* ${formatCOP(total)}`;
+          window.open(`https://wa.me/573202597053?text=${msg}`, '_blank');
+        } else if (selectedGateway === 'mercadopago') {
+          alert(`💙 [Prueba Local Exitosa] Simulando pasarela de Mercado Pago:\n\nTotal a cobrar: ${formatCOP(total)}\nCliente: ${name}\nMétodos habilitados: PSE, Nequi, Tarjetas de Débito y Crédito.`);
+        } else {
+          alert(`💳 [Prueba Local Exitosa] Simulando pasarela Stripe Checkout:\n\nTotal a cobrar: ${formatCOP(total)}\nCliente: ${name}\nMétodo: Tarjetas internacionales con cifrado SSL.`);
+        }
+
+        cart = [];
+        saveCart();
+        modal.classList.remove('active');
+      };
+    }
+
+    function openCart() {
+      document.getElementById('huma-drawer').classList.add('active');
+      document.getElementById('huma-overlay').classList.add('active');
+    }
+
+    function closeCart() {
+      document.getElementById('huma-drawer').classList.remove('active');
+      document.getElementById('huma-overlay').classList.remove('active');
+    }
+
+    renderCatalog();
+    updateCartUI();
+    setupEvents();
+  </script>
+</body>
+</html>
